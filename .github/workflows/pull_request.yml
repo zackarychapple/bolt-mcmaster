@@ -44,5 +44,6 @@ jobs:
           echo "url=$URL" >> "$GITHUB_OUTPUT"
 
       - name: Use extracted URL
-        run: |
-          echo "The URL from the build step is: ${{ steps.build.outputs.url }}"
+        env:
+          PAGE_URL: ${{ steps.build.outputs.url }}
+        run: npm run ai-e2e

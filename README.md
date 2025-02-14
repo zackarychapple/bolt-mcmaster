@@ -125,3 +125,7 @@ Error: Process completed with exit code 1.
 33. Commit & Push to development to check output
 34. Asked ChatGPT why it still wasn't working. It said I was missing the ID in the build step that was the source of the output. 
 35. Commit & Push to development to check output
+36. Output works as expected, adding Midscene and Puppeteer `npm install @midscene/web puppeteer tsx --save-dev` with instructions from their [doc site](https://midscenejs.com/integrate-with-puppeteer.html)
+37. Copy pasted their example test to an `ai-e2e` directory.
+38. Adding script to package.json for running the test.
+39. Commit & Push to development to check output
