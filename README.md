@@ -80,3 +80,4 @@ env:
 21. Forgot to hit save on the secret
 22. Reran the job
 23. Secret on GitHub was upper case and yml was lower case, correcting and pushing again
+24. Asked ChatGPT why it was still failing. Turns out I need to use `secrets.`, correcting and pushing again
