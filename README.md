@@ -77,3 +77,6 @@ env:
 ```
 19. Added the secret to [Actions Secrets ](https://github.com/zackarychapple/bolt-mcmaster/settings/secrets/actions/new)
 20. Commit & Push to development
+21. Forgot to hit save on the secret
+22. Reran the job
+23. Secret on GitHub was upper case and yml was lower case, correcting and pushing again

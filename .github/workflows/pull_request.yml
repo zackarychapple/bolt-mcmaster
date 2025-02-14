@@ -27,5 +27,5 @@ jobs:
       # Run the build script (make sure "build" is defined in your package.json)
       - name: Run build
         env:
-          ZE_SECRET_TOKEN: ${{ zephyr_auth_token }}
+          ZE_SECRET_TOKEN: ${{ ZEPHYR_AUTH_TOKEN }}
         run: npm run build
