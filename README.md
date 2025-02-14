@@ -129,3 +129,48 @@ Error: Process completed with exit code 1.
 37. Copy pasted their example test to an `ai-e2e` directory.
 38. Adding script to package.json for running the test.
 39. Commit & Push to development to check output
+40. Got an error
+```bash
+Run npm run ai-e2e
+  
+> vite-react-typescript-starter@0.0.0 ai-e2e
+> npx tsx ./ai-e2e/test.ts
+/home/runner/work/bolt-mcmaster/bolt-mcmaster/node_modules/@puppeteer/browsers/src/launch.ts:490
+          new Error(
+          ^
+Error: Failed to launch the browser process!
+[2137:2137:0214/011246.360352:FATAL:zygote_host_impl_linux.cc(127)] No usable sandbox! If you are running on Ubuntu 23.10+ or another Linux distro that has disabled unprivileged user namespaces with AppArmor, see https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md. Otherwise see https://chromium.googlesource.com/chromium/src/+/main/docs/linux/suid_sandbox_development.md for more information on developing with the (older) SUID sandbox. If you want to live dangerously and need an immediate workaround, you can try using --no-sandbox.
+[0214/011246.377490:ERROR:file_io_posix.cc(145)] open /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq: No such file or directory (2)
+[0214/011246.377538:ERROR:file_io_posix.cc(145)] open /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq: No such file or directory (2)
+TROUBLESHOOTING: https://pptr.dev/troubleshooting
+    at ChildProcess.onClose (/home/runner/work/bolt-mcmaster/bolt-mcmaster/node_modules/@puppeteer/browsers/src/launch.ts:490:11)
+    at ChildProcess.emit (node:events:530:35)
+    at ChildProcess._handle.onexit (node:internal/child_process:293:12)
+Node.js v20.18.2
+Error: Process completed with exit code 1.
+```
+41. Trying to run locally
+42. Found there is also going to be an error for the Midscene API
+```bash
+Midscene - report file updated: /Users/zackarychapple/code/bolt mcmaster-carr/midscene_run/report/web-2025-02-13_20-18-17-472.html
+/Users/zackarychapple/code/bolt mcmaster-carr/node_modules/@midscene/web/dist/es/puppeteer.js:4496
+      throw new Error(`${errorTask == null ? void 0 : errorTask.error}
+            ^
+
+Error: Cannot find config for AI model service. You should set it before using. https://midscenejs.com/model-provider.html
+AssertionError [ERR_ASSERTION]: Cannot find config for AI model service. You should set it before using. https://midscenejs.com/model-provider.html
+    at callAiFn (/Users/zackarychapple/code/bolt mcmaster-carr/node_modules/@midscene/core/src/ai-model/common.ts:26:3)
+    at AiExtractElementInfo (/Users/zackarychapple/code/bolt mcmaster-carr/node_modules/@midscene/core/src/ai-model/inspect.ts:262:24)
+    at Insight.extract (/Users/zackarychapple/code/bolt mcmaster-carr/node_modules/@midscene/core/src/insight/index.ts:190:42)
+    at async Object.executor (/Users/zackarychapple/code/bolt mcmaster-carr/node_modules/@midscene/web/dist/es/puppeteer.js:4085:22)
+    at async Object.executor (/Users/zackarychapple/code/bolt mcmaster-carr/node_modules/@midscene/web/dist/es/puppeteer.js:3430:24)
+    at Executor.flush (/Users/zackarychapple/code/bolt mcmaster-carr/node_modules/@midscene/core/src/ai-model/action-executor.ts:126:25)
+    at async PageTaskExecutor.query (/Users/zackarychapple/code/bolt mcmaster-carr/node_modules/@midscene/web/dist/es/puppeteer.js:4093:20)
+    at async PuppeteerAgent.aiQuery (/Users/zackarychapple/code/bolt mcmaster-carr/node_modules/@midscene/web/dist/es/puppeteer.js:4489:34)
+    at <anonymous> (/Users/zackarychapple/code/bolt mcmaster-carr/ai-e2e/test.ts:25:19)
+    at PuppeteerAgent.aiQuery (/Users/zackarychapple/code/bolt mcmaster-carr/node_modules/@midscene/web/dist/es/puppeteer.js:4496:13)
+    at <anonymous> (/Users/zackarychapple/code/bolt mcmaster-carr/ai-e2e/test.ts:25:19)
+```
+43. Adding OpenAI token to Github secrets `OPENAI_API_KEY`
+44. Using the output to the previous error on the action added the following to the Puppeteer launch script. `args: ['--no-sandbox', '--disable-setuid-sandbox'],`
+45. Commit & Push to development to check output

@@ -5,6 +5,7 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 Promise.resolve(
   (async () => {
     const browser = await puppeteer.launch({
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
       headless: false, // here we use headed mode to help debug
     });
 
@@ -14,7 +15,7 @@ Promise.resolve(
       height: 800,
       deviceScaleFactor: 1,
     });
-
+    console.log('url:' + process.env.PAGE_URL)
     await page.goto(process.env.PAGE_URL);
     await sleep(5000);
 
