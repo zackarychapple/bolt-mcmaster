@@ -117,3 +117,6 @@ Error: Process completed with exit code 1.
 ```
 26. Added `.gitkeep` file in the public directory so it pushes. 
 27. Commit & Push to development
+28. Built passed and [URL](https://zackary-chapple-262-vite-react-typescript-starter-8ab89d15b-ze.zephyrcloud.app) was generated
+29. Asking chat GPT how to get the URL from the build output `If my build step has output that contains the below text.  How would I get the URL that is output and pass it to another step? `
+30. Commit & Push to development to check output

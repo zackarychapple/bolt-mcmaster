@@ -28,4 +28,23 @@ jobs:
       - name: Run build
         env:
           ZE_SECRET_TOKEN: ${{ secrets.ZEPHYR_AUTH_TOKEN }}
-        run: npm run build
+        run: |
+          OUTPUT=$(npm run build)
+          echo "$OUTPUT"
+          URL=$(echo "$OUTPUT" | grep -oE 'https://[^ ]+')
+          
+          # Optionally, verify that a URL was found.
+          if [ -z "$URL" ]; then
+           echo "No URL found in build output."
+           exit 1
+          fi
+          
+          echo "Extracted Zephyr URL: $URL"
+          
+          # Set the URL as an output variable using the recommended GitHub Actions method.
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+          
+          # Another step that uses the captured URL.
+          - name: Use extracted URL
+            run: |
+              echo "The URL from the build step is: ${{ steps.build.outputs.url }}"
