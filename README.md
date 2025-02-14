@@ -37,6 +37,10 @@ dist/assets/index-CsfIn8QN.js   148.03 kB │ gzip: 47.61 kB
  ZEPHYR   
  ZEPHYR   https://zackary-chapple-260-vite-react-typescript-starter-a974ca86e-ze.zephyrcloud.app
 ```
-8. Second Commit
+8. Second commit
 9. Generated a GitHub action for pull requests using ChatGPT 03-mini-high with `i need a github action that when I open a pull request does a npm build` as the prompt.
-10. 
+10. Third commit 
+11. Cleaned yml
+12. Fourth commit
+13. Switched to development branch
+14. Fifth commit
