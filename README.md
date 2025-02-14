@@ -174,3 +174,23 @@ AssertionError [ERR_ASSERTION]: Cannot find config for AI model service. You sho
 43. Adding OpenAI token to Github secrets `OPENAI_API_KEY`
 44. Using the output to the previous error on the action added the following to the Puppeteer launch script. `args: ['--no-sandbox', '--disable-setuid-sandbox'],`
 45. Commit & Push to development to check output
+46. Got a different error
+```bash
+Run npm run ai-e2e
+  
+> vite-react-typescript-starter@0.0.0 ai-e2e
+> npx tsx ./ai-e2e/test.ts
+/home/runner/work/bolt-mcmaster/bolt-mcmaster/node_modules/@puppeteer/browsers/src/launch.ts:490
+          new Error(
+          ^
+Error: Failed to launch the browser process! undefined
+[2069:2069:0214/012326.595509:ERROR:ozone_platform_x11.cc(245)] Missing X server or $DISPLAY
+[2069:2069:0214/012326.595548:ERROR:env.cc(257)] The platform failed to initialize.  Exiting.
+TROUBLESHOOTING: https://pptr.dev/troubleshooting
+    at ChildProcess.onClose (/home/runner/work/bolt-mcmaster/bolt-mcmaster/node_modules/@puppeteer/browsers/src/launch.ts:490:11)
+    at ChildProcess.emit (node:events:530:35)
+    at ChildProcess._handle.onexit (node:internal/child_process:293:12)
+Node.js v20.18.2
+Error: Process completed with exit code 1.
+```
+47. Found a [StackOverflow post](https://stackoverflow.com/questions/62228154/puppeteer-fails-to-initiate-in-github-actions) that talked about the error, updated libgm1 per the answer.
