@@ -229,3 +229,12 @@ Error: Process completed with exit code 1.
 61. Tests were green and apt-get install was not needed
 62. Trying to set headless to `true` to test "new headless" mode
 63. Commit & Push to development to check output
+64. Broke yml actually cleaning up apt-get install
+65. Commit & Push to development to check output
+66. Fixing yml
+67. Commit & Push to development to check output
+68. Back to green, trying to load Chrome extension
+69. Copy pasted the remote from the [vite mf](https://github.com/ZephyrCloudIO/zephyr-examples/tree/main/examples/react-vite-mf) zephyr examples as the `example-remote`
+70. Removed the code for chrome extension since we don't actually need it to test Zephyr
+71. Adding federation to host config
+72. Making mfConfig of host match package.json name

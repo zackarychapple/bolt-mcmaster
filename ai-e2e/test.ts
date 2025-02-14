@@ -1,13 +1,14 @@
 import puppeteer from "puppeteer";
 import { PuppeteerAgent } from "@midscene/web/puppeteer";
+import * as path from "path";
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
-// const EXTENSION_ID = 'liflhldchhinbaeplljlplhnbkdidedn';
+const pathToZephyrExtension = path.join(process.cwd(), 'zephyr_extension.crx');
 
 Promise.resolve(
   (async () => {
     const browser = await puppeteer.launch({
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      args: ['--no-sandbox', '--disable-setuid-sandbox',`--load-extension=${pathToZephyrExtension}`,],
       headless: true,
     });
 

@@ -47,7 +47,6 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           PAGE_URL: ${{ steps.build.outputs.url }}
         run: npm run ai-e2e
-
       - name: Upload Midscene output
         uses: actions/upload-artifact@v4
         with:
