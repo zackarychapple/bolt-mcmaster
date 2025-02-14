@@ -199,3 +199,5 @@ Error: Process completed with exit code 1.
 50. Commit & Push to development to check output
 51. Now I got the error for AI Model service missing api key, adding secret to env vars in action 
 52. Commit & Push to development to check output
+53. Run was successful, attempting to upload the output html with upload-artifact GitHub functionality
+54. Commit & Push to development to check output
