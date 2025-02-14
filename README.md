@@ -37,10 +37,43 @@ dist/assets/index-CsfIn8QN.js   148.03 kB │ gzip: 47.61 kB
  ZEPHYR   
  ZEPHYR   https://zackary-chapple-260-vite-react-typescript-starter-a974ca86e-ze.zephyrcloud.app
 ```
-8. Second commit
+8. Commit
 9. Generated a GitHub action for pull requests using ChatGPT 03-mini-high with `i need a github action that when I open a pull request does a npm build` as the prompt.
-10. Third commit 
+10. Commit 
 11. Cleaned yml
-12. Fourth commit
+12. Commit
 13. Switched to development branch
-14. Fifth commit
+14. Commit
+15. Created [first](https://github.com/zackarychapple/bolt-mcmaster/pull/1) pull request to see if GitHub action ran and the output.
+16. Build hung trying to open window to authenticate Zephyr, cancelled the workflow
+```bash
+Run npm run build
+> vite-react-typescript-starter@0.0.0 build
+> vite build
+The CJS build of Vite's Node API is deprecated. See https://vitejs.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.
+vite v5.4.8 building for production...
+ ZEPHYR   Opening browser for authentication...
+Error: The operation was canceled.
+0s
+0s
+Post job cleanup.
+/usr/bin/git version
+git version 2.48.1
+Temporarily overriding HOME='/home/runner/work/_temp/124609fb-a5d4-4059-8179-1d6856436952' before making global git config changes
+Adding repository directory to the temporary git global config as a safe directory
+/usr/bin/git config --global --add safe.directory /home/runner/work/bolt-mcmaster/bolt-mcmaster
+/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+http.https://github.com/.extraheader
+/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+ ```
+17. Using the [token generation page](https://app.zephyr-cloud.io/profile/settings/user-tokens/generate) on Zephyr created an api token to use with GitHub
+18. Looked up undocumented functionality on how to add Zephyr to GitHub action
+```yml
+env:
+  ZE_SECRET_TOKEN: ${{ zephyr_auth_token }}
+```
+19. Added the secret to [Actions Secrets ](https://github.com/zackarychapple/bolt-mcmaster/settings/secrets/actions/new)
+20. Commit & Push to development
