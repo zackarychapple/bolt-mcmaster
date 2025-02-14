@@ -121,3 +121,5 @@ Error: Process completed with exit code 1.
 29. Asking chat GPT how to get the URL from the build output `If my build step has output that contains the below text.  How would I get the URL that is output and pass it to another step? `
 30. Commit & Push to development to check output
 31. Adjusting the formatting of the yml to correct for error
+32. Adding missing echo to GitHub output
+33. Commit & Push to development to check output
