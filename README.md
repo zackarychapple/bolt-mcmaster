@@ -201,3 +201,5 @@ Error: Process completed with exit code 1.
 52. Commit & Push to development to check output
 53. Run was successful, attempting to upload the output html with upload-artifact GitHub functionality
 54. Commit & Push to development to check output
+55. Output was successfully uploaded and validated. 
+56. Attempting to turn the test assertion red by validating an incorrect phone number

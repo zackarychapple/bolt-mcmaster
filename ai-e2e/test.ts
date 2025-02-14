@@ -22,13 +22,8 @@ Promise.resolve(
     // 👀 init Midscene agent
     const mid = new PuppeteerAgent(page);
 
-    // 👀 understand the page content, find the items
-    const items = await mid.aiQuery("how many items are on the current category");
-
-    console.log("quantity of items on page", items);
-
     // 👀 assert by AI
-    await mid.aiAssert("There is a category filter on the left");
+    await mid.aiAssert("The phone number is '(404) 346-8000'");
 
     await browser.close();
   })()
