@@ -2,11 +2,13 @@ import puppeteer from "puppeteer";
 import { PuppeteerAgent } from "@midscene/web/puppeteer";
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+// const EXTENSION_ID = 'liflhldchhinbaeplljlplhnbkdidedn';
+
 Promise.resolve(
   (async () => {
     const browser = await puppeteer.launch({
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
-      headless: "shell",
+      headless: true,
     });
 
     const page = await browser.newPage();

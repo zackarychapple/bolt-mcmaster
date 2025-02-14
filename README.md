@@ -226,3 +226,6 @@ Error: Process completed with exit code 1.
 ```
 59. Turning test green again and cleaning up apt-get install (may not be needed)
 60. Commit & Push to development to check output
+61. Tests were green and apt-get install was not needed
+62. Trying to set headless to `true` to test "new headless" mode
+63. Commit & Push to development to check output
