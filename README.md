@@ -81,3 +81,39 @@ env:
 22. Reran the job
 23. Secret on GitHub was upper case and yml was lower case, correcting and pushing again
 24. Asked ChatGPT why it was still failing. Turns out I need to use `secrets.`, correcting and pushing again
+25. Got a new error because there was not a file in public so it was never pushed to GitHub.
+```bash
+Run npm run build
+
+> vite-react-typescript-starter@0.0.0 build
+> vite build
+
+The CJS build of Vite's Node API is deprecated. See https://vitejs.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.
+vite v5.4.8 building for production...
+transforming...
+ ZEPHYR   Hi zackary_chapple!
+ ZEPHYR   vite-react-typescript-starter.bolt-mcmaster.zackarychapple#261
+ ZEPHYR   
+✓ 1470 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.46 kB │ gzip:  0.30 kB
+dist/assets/index-DTFPGNkD.css    8.44 kB │ gzip:  2.36 kB
+dist/assets/index-DFboT6Ye.js   148.03 kB │ gzip: 47.61 kB
+✓ built in 2.32s
+error during build:
+Error: ENOENT: no such file or directory, scandir '/home/runner/work/bolt-mcmaster/bolt-mcmaster/public'
+    at readdirSync (node:fs:1506:26)
+    at loadDir (/home/runner/work/bolt-mcmaster/bolt-mcmaster/node_modules/vite-plugin-zephyr/dist/lib/internal/extract/load_public_dir.js:12:54)
+    at load_public_dir (/home/runner/work/bolt-mcmaster/bolt-mcmaster/node_modules/vite-plugin-zephyr/dist/lib/internal/extract/load_public_dir.js:34:11)
+    at loadStaticAssets (/home/runner/work/bolt-mcmaster/bolt-mcmaster/node_modules/vite-plugin-zephyr/dist/lib/internal/extract/load_static_assets.js:9:76)
+    at extract_vite_assets_map (/home/runner/work/bolt-mcmaster/bolt-mcmaster/node_modules/vite-plugin-zephyr/dist/lib/internal/extract/extract_vite_assets_map.js:8:68)
+    at Object.closeBundle (/home/runner/work/bolt-mcmaster/bolt-mcmaster/node_modules/vite-plugin-zephyr/dist/lib/vite-plugin-zephyr.js:55:91)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Promise.all (index 0)
+    at async PluginDriver.hookParallel (file:///home/runner/work/bolt-mcmaster/bolt-mcmaster/node_modules/rollup/dist/es/shared/node-entry.js:20658:9)
+    at async Object.close (file:///home/runner/work/bolt-mcmaster/bolt-mcmaster/node_modules/rollup/dist/es/shared/node-entry.js:21627:13)
+Error: Process completed with exit code 1.
+```
+26. Added `.gitkeep` file in the public directory so it pushes. 
+27. Commit & Push to development
