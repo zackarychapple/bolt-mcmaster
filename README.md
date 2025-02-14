@@ -120,3 +120,4 @@ Error: Process completed with exit code 1.
 28. Built passed and [URL](https://zackary-chapple-262-vite-react-typescript-starter-8ab89d15b-ze.zephyrcloud.app) was generated
 29. Asking chat GPT how to get the URL from the build output `If my build step has output that contains the below text.  How would I get the URL that is output and pass it to another step? `
 30. Commit & Push to development to check output
+31. Adjusting the formatting of the yml to correct for error
