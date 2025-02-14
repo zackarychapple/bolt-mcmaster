@@ -6,7 +6,7 @@ Promise.resolve(
   (async () => {
     const browser = await puppeteer.launch({
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
-      headless: false, // here we use headed mode to help debug
+      headless: "shell",
     });
 
     const page = await browser.newPage();

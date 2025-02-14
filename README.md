@@ -194,3 +194,6 @@ Node.js v20.18.2
 Error: Process completed with exit code 1.
 ```
 47. Found a [StackOverflow post](https://stackoverflow.com/questions/62228154/puppeteer-fails-to-initiate-in-github-actions) that talked about the error, updated libgm1 per the answer.
+48. Commit & Push to development to check output 
+49. Looking at headless [documents](https://pptr.dev/guides/headless-modes) for Puppeteer found out about headless shell mode trying that
+50. Commit & Push to development to check output
