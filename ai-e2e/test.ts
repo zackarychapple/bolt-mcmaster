@@ -23,7 +23,7 @@ Promise.resolve(
     const mid = new PuppeteerAgent(page);
 
     // 👀 assert by AI
-    await mid.aiAssert("The phone number is '(404) 346-8000'");
+    await mid.aiAssert("The phone number is '(404) 346-7000'");
 
     await browser.close();
   })()

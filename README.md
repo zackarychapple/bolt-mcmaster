@@ -202,4 +202,27 @@ Error: Process completed with exit code 1.
 53. Run was successful, attempting to upload the output html with upload-artifact GitHub functionality
 54. Commit & Push to development to check output
 55. Output was successfully uploaded and validated. 
-56. Attempting to turn the test assertion red by validating an incorrect phone number
+56. Commit & Push to development to check output 
+57. Attempting to turn the test assertion red by validating an incorrect phone number
+58. Commit & Push to development to check output 
+59. Test failed as expected
+```bash
+Run npm run ai-e2e
+  
+> vite-react-typescript-starter@0.0.0 ai-e2e
+> npx tsx ./ai-e2e/test.ts
+url:https://zackary-chapple-273-vite-react-typescript-starter-4de241851-ze.zephyrcloud.app
+Midscene - report file updated: /home/runner/work/bolt-mcmaster/bolt-mcmaster/midscene_run/report/web-2025-02-14_02-04-08-552.html
+/home/runner/work/bolt-mcmaster/bolt-mcmaster/node_modules/@midscene/web/dist/es/puppeteer.js:4514
+      throw new Error(`${errMsg}
+            ^
+Error: Assertion failed: The phone number is '(404) 346-8000'
+Reason: The phone number displayed on the page is '(404) 346-7000', not '(404) 346-8000'.
+    at PuppeteerAgent.aiAssert (/home/runner/work/bolt-mcmaster/bolt-mcmaster/node_modules/@midscene/web/dist/es/puppeteer.js:4514:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async <anonymous> (/home/runner/work/bolt-mcmaster/bolt-mcmaster/ai-e2e/test.ts:26:5)
+Node.js v20.18.2
+Error: Process completed with exit code 1.
+```
+59. Turning test green again and cleaning up apt-get install (may not be needed)
+60. Commit & Push to development to check output
