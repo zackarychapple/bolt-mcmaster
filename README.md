@@ -197,3 +197,5 @@ Error: Process completed with exit code 1.
 48. Commit & Push to development to check output 
 49. Looking at headless [documents](https://pptr.dev/guides/headless-modes) for Puppeteer found out about headless shell mode trying that
 50. Commit & Push to development to check output
+51. Now I got the error for AI Model service missing api key, adding secret to env vars in action 
+52. Commit & Push to development to check output

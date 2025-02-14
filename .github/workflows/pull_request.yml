@@ -47,7 +47,8 @@ jobs:
           echo "Extracted Zephyr URL: $URL"
           echo "url=$URL" >> "$GITHUB_OUTPUT"
 
-      - name: Use extracted URL
+      - name: Run AI E2E tests with Puppeteer and Midscene
         env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           PAGE_URL: ${{ steps.build.outputs.url }}
         run: npm run ai-e2e
