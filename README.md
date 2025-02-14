@@ -123,3 +123,5 @@ Error: Process completed with exit code 1.
 31. Adjusting the formatting of the yml to correct for error
 32. Adding missing echo to GitHub output
 33. Commit & Push to development to check output
+34. Asked ChatGPT why it still wasn't working. It said I was missing the ID in the build step that was the source of the output. 
+35. Commit & Push to development to check output
