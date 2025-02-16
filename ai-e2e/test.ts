@@ -48,7 +48,7 @@ Promise.resolve(
     await page.reload();
     await sleep(5000);
 
-    const storedValueWorked = await page.evaluate(() => sessionStorage.getItem(remote));
+    const storedValueWorked = await page.evaluate((remote) => sessionStorage.getItem(remote), remote);
     console.log('Stored value:', storedValueWorked);
 
     mid = new PuppeteerAgent(page);
