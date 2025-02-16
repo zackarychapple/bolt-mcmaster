@@ -1,5 +1,5 @@
 import puppeteer from "puppeteer";
-import { PuppeteerAgent } from "@midscene/web/puppeteer";
+import {PuppeteerAgent} from "@midscene/web/puppeteer";
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -39,9 +39,12 @@ Promise.resolve(
     await mid.aiAssert("the text on the screen should not contain \"Yep Really, not yet\"")
 
     // Updating session storage for the remote to have the "next" tag
-    await page.evaluate((remote = process.env.remote, url = process.env.remoteUrl) => {
-      sessionStorage.setItem(remote, url);
-    });
+    await page.evaluate((remote, url) => {
+        sessionStorage.setItem(remote, url);
+      },
+      process.env.REMOTE,
+      process.env.REMOTE_URL
+    );
 
     await page.reload();
     await sleep(5000);
