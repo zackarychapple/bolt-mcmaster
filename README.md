@@ -238,3 +238,4 @@ Error: Process completed with exit code 1.
 70. Removed the code for chrome extension since we don't actually need it to test Zephyr
 71. Adding federation to host config
 72. Making mfConfig of host match package.json name
+73. Updating package.json for new vite canary for zephyr plugin
