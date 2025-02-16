@@ -28,6 +28,17 @@ Promise.resolve(
     // 👀 assert by AI
     await mid.aiAssert("The phone number is '(404) 346-7000'");
 
+    await mid.aiAssert("the text on the screen should contain \"This is a button from Vite remote.\"")
+
+    console.log("Production is broken")
+
+    await page.goto("https://t-production-vite-mcmaster-host-bolt-mcmaster-zackary-92c83f-ze.zephyrcloud.app/");
+    await mid.aiAssert("the text on the screen should contain \"This is a button from Vite remote.\"")
+
+    // Updating session storage for the remote to have the "next" tag
+    sessionStorage.setItem('vite-remote.bolt-mcmaster.zackarychapple', 'https://t-next-vite-remote-bolt-mcmaster-zackarychapple-ze.zephyrcloud.app/remoteEntry.js');
+
+    await mid.aiAssert("the text on the screen should contain \"This is a button from Vite remote. Yep Really, not yet\"")
     await browser.close();
   })()
 );
