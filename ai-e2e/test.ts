@@ -47,6 +47,10 @@ Promise.resolve(
 
     await page.reload();
     await sleep(5000);
+
+    const storedValueWorked = await page.evaluate(() => sessionStorage.getItem('vite-remote.bolt-mcmaster.zackarychapple'));
+    console.log('Stored value:', storedValueWorked);
+
     mid = new PuppeteerAgent(page);
 
     await mid.aiAssert("the text on the screen should contain \"This is a button from Vite remote. Yep Really, not yet\"")
