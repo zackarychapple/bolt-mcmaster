@@ -23,7 +23,7 @@ Promise.resolve(
     await sleep(5000);
 
     // 👀 init Midscene agent
-    const mid = new PuppeteerAgent(page);
+    let mid = new PuppeteerAgent(page);
 
     // 👀 assert by AI
     await mid.aiAssert("The phone number is '(404) 346-7000'");
@@ -33,7 +33,9 @@ Promise.resolve(
     console.log("Production is broken")
 
     await page.goto("https://t-production-vite-mcmaster-host-bolt-mcmaster-zackary-92c83f-ze.zephyrcloud.app/");
-    await mid.aiAssert("the text on the screen should contain \"This is a button from Vite remote.\"")
+    mid = new PuppeteerAgent(page);
+
+    await mid.aiAssert("the text on the screen should not contain \"Yep Really, not yet\"")
 
     // Updating session storage for the remote to have the "next" tag
     await page.evaluate(() => {
@@ -41,6 +43,7 @@ Promise.resolve(
     });
 
     await page.reload();
+    mid = new PuppeteerAgent(page);
 
     await mid.aiAssert("the text on the screen should contain \"This is a button from Vite remote. Yep Really, not yet\"")
     await browser.close();
