@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, {lazy, Suspense, useState} from 'react';
 import { Menu, Search } from 'lucide-react';
 
+const RemoteButton = lazy(() => import('vite-remote/Button'));
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -76,7 +77,8 @@ function App() {
             </div>
           </div>
           <div className="flex space-x-6">
-            <a href="#" className="text-[#336633] font-semibold hover:text-[#1a4d1a]">ORDER</a>
+            <a href="#" className="text-[#336633] font-semibold hover:text-[#1a4d1a]">ORDER
+            </a>
             <a href="#" className="text-[#336633] font-semibold hover:text-[#1a4d1a]">ORDER HISTORY</a>
           </div>
         </div>
@@ -124,6 +126,9 @@ function App() {
                 ))}
               </div>
             </div>
+            <Suspense fallback="Loading Button">
+              <RemoteButton />
+            </Suspense>
           </div>
         </div>
       </main>
