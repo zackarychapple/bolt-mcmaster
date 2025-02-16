@@ -41,7 +41,12 @@ jobs:
           
           echo "Extracted Zephyr URL: $URL"
           echo "url=$URL" >> "$GITHUB_OUTPUT"
-
+      - name: Run build remote
+        id: buildRemote
+        env:
+          ZE_SECRET_TOKEN: ${{ secrets.ZEPHYR_AUTH_TOKEN }}
+        run: |
+          npm run build-remote
       - name: Run AI E2E tests with Puppeteer and Midscene
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}

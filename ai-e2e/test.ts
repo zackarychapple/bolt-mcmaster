@@ -42,7 +42,7 @@ Promise.resolve(
 
     // Updating session storage for the remote to have the "next" tag
     await page.evaluate(() => {
-      sessionStorage.setItem('vite-remote.bolt-mcmaster.zackarychapple', 'https://t-next-vite-remote-bolt-mcmaster-zackarychapple-ze.zephyrcloud.app/remoteEntry.js');
+      sessionStorage.setItem('vite-remote.bolt-mcmaster.zackarychapple', 'https://t-next-zackary-chapple-vite-remote-bolt-mcmaster-zack-624c11-ze.zephyrcloud.app/remoteEntry.js');
     });
 
     await page.reload();
