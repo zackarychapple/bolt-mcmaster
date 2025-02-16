@@ -12,7 +12,7 @@ Promise.resolve(
       headless: true,
     });
 
-    const page = await browser.newPage();
+    let page = await browser.newPage();
     await page.setViewport({
       width: 1280,
       height: 800,
@@ -32,7 +32,10 @@ Promise.resolve(
 
     console.log("Production is broken")
 
+    page = await browser.newPage();
     await page.goto("https://t-production-vite-mcmaster-host-bolt-mcmaster-zackary-92c83f-ze.zephyrcloud.app/");
+    await sleep(5000);
+
     mid = new PuppeteerAgent(page);
 
     await mid.aiAssert("the text on the screen should not contain \"Yep Really, not yet\"")
@@ -43,6 +46,7 @@ Promise.resolve(
     });
 
     await page.reload();
+    await sleep(5000);
     mid = new PuppeteerAgent(page);
 
     await mid.aiAssert("the text on the screen should contain \"This is a button from Vite remote. Yep Really, not yet\"")
