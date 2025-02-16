@@ -32,25 +32,34 @@ jobs:
           OUTPUT=$(npm run build)
           echo "$OUTPUT"
           URL=$(echo "$OUTPUT" | grep -oE 'https://[^ ]+')
+          HOST=$(echo "$OUTPUT" | grep -oP '(?<=ZEPHYR\s+)\S+(?=#)')
           
-          # Optionally, verify that a URL was found.
-          if [ -z "$URL" ]; then
-           echo "No URL found in build output."
-           exit 1
-          fi
-          
-          echo "Extracted Zephyr URL: $URL"
+          echo "Extracted Host Zephyr URL: $URL"
+          echo "Extracted Host: $HOST"
+          echo "host=$HOST" >> "$GITHUB_OUTPUT"
           echo "url=$URL" >> "$GITHUB_OUTPUT"
+
       - name: Run build remote
         id: buildRemote
         env:
           ZE_SECRET_TOKEN: ${{ secrets.ZEPHYR_AUTH_TOKEN }}
         run: |
-          npm run build-remote
+          OUTPUT=$(npm run build-remote)
+          echo "$OUTPUT"
+          REMOTE_URL=$(echo "$OUTPUT" | grep -oE 'https://[^ ]+')
+          REMOTE=$(echo "$OUTPUT" | grep -oP '(?<=ZEPHYR\s+)\S+(?=#)')
+          
+          echo "Extracted Remote Zephyr URL: $REMOTE_URL"
+          echo "Extracted Remote: $REMOTE"
+          echo "remote=$REMOTE" >> "$GITHUB_OUTPUT"
+          echo "remoteUrl=$REMOTE_URL" >> "$GITHUB_OUTPUT"
+
       - name: Run AI E2E tests with Puppeteer and Midscene
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           PAGE_URL: ${{ steps.build.outputs.url }}
+          REMOTE_URL: ${{ steps.buildRemote.outputs.remoteUrl }}
+          REMOTE: ${{ steps.buildRemote.outputs.remote }}
         run: npm run ai-e2e
       - name: Upload Midscene output
         if: always()

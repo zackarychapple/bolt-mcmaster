@@ -36,13 +36,13 @@ Promise.resolve(
     await page.goto("https://t-production-vite-mcmaster-host-bolt-mcmaster-zackary-92c83f-ze.zephyrcloud.app/");
     await sleep(5000);
 
-    mid = new PuppeteerAgent(page);
+    // mid = new PuppeteerAgent(page);
 
     await mid.aiAssert("the text on the screen should not contain \"Yep Really, not yet\"")
 
     // Updating session storage for the remote to have the "next" tag
     await page.evaluate(() => {
-      sessionStorage.setItem('vite-remote.bolt-mcmaster.zackarychapple', 'https://t-next-zackary-chapple-vite-remote-bolt-mcmaster-zack-624c11-ze.zephyrcloud.app/remoteEntry.js');
+      sessionStorage.setItem(process.env.remote, process.env.remoteUrl);
     });
 
     await page.reload();
@@ -51,7 +51,7 @@ Promise.resolve(
     const storedValueWorked = await page.evaluate(() => sessionStorage.getItem('vite-remote.bolt-mcmaster.zackarychapple'));
     console.log('Stored value:', storedValueWorked);
 
-    mid = new PuppeteerAgent(page);
+    // mid = new PuppeteerAgent(page);
 
     await mid.aiAssert("the text on the screen should contain \"This is a button from Vite remote. Yep Really, not yet\"")
     await browser.close();
