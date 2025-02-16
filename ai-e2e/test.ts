@@ -1,14 +1,12 @@
 import puppeteer from "puppeteer";
 import { PuppeteerAgent } from "@midscene/web/puppeteer";
-import * as path from "path";
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
-const pathToZephyrExtension = path.join(process.cwd(), 'zephyr_extension.crx');
 
 Promise.resolve(
   (async () => {
     const browser = await puppeteer.launch({
-      args: ['--no-sandbox', '--disable-setuid-sandbox',`--load-extension=${pathToZephyrExtension}`,],
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
       headless: true,
     });
 
@@ -41,14 +39,14 @@ Promise.resolve(
     await mid.aiAssert("the text on the screen should not contain \"Yep Really, not yet\"")
 
     // Updating session storage for the remote to have the "next" tag
-    await page.evaluate(() => {
-      sessionStorage.setItem(process.env.remote, process.env.remoteUrl);
+    await page.evaluate((remote = process.env.remote, url = process.env.remoteUrl) => {
+      sessionStorage.setItem(remote, url);
     });
 
     await page.reload();
     await sleep(5000);
 
-    const storedValueWorked = await page.evaluate(() => sessionStorage.getItem('vite-remote.bolt-mcmaster.zackarychapple'));
+    const storedValueWorked = await page.evaluate(() => sessionStorage.getItem(process.env.remote));
     console.log('Stored value:', storedValueWorked);
 
     mid = new PuppeteerAgent(page);
