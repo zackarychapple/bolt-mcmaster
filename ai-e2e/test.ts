@@ -36,7 +36,11 @@ Promise.resolve(
     await mid.aiAssert("the text on the screen should contain \"This is a button from Vite remote.\"")
 
     // Updating session storage for the remote to have the "next" tag
-    sessionStorage.setItem('vite-remote.bolt-mcmaster.zackarychapple', 'https://t-next-vite-remote-bolt-mcmaster-zackarychapple-ze.zephyrcloud.app/remoteEntry.js');
+    await page.evaluate(() => {
+      sessionStorage.setItem('vite-remote.bolt-mcmaster.zackarychapple', 'https://t-next-vite-remote-bolt-mcmaster-zackarychapple-ze.zephyrcloud.app/remoteEntry.js');
+    });
+
+    await page.reload();
 
     await mid.aiAssert("the text on the screen should contain \"This is a button from Vite remote. Yep Really, not yet\"")
     await browser.close();

@@ -239,3 +239,4 @@ Error: Process completed with exit code 1.
 71. Adding federation to host config
 72. Making mfConfig of host match package.json name
 73. Updating package.json for new vite canary for zephyr plugin
+74. Wrapping sessionStorage call in page.evaluate
